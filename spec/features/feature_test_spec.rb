@@ -17,5 +17,10 @@ describe "homepage", type: :feature do
     it "shows player 2's hitpoints" do
       expect(page).to have_content 'Alastair: 1000/1000'
     end
+
+    it "can hit player 2" do
+      click_button 'Smack'
+      expect(page).to have_content 'Player 2 got smacked!'
+    end
   end
 end

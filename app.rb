@@ -16,6 +16,12 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1 = session['Player 1']
     @player_2 = session['Player 2']
+    @action = session['action']
     erb :play
+  end
+
+  post '/hit-player-2' do
+    session['action'] = "#{session['Player 2']} got smacked!"
+    redirect to '/play'
   end
 end
