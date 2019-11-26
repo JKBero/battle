@@ -4,12 +4,18 @@ describe "homepage", type: :feature do
     expect(page).to have_content 'I want to rip your heart out! Welcome to Battle!'
   end
 
-  it "accepts players names" do
-    visit '/'
-    fill_in 'Player 1', with: 'Jade'
-    fill_in 'Player 2', with: 'Alastair'
-    click_button 'FIGHT!'
-    expect(page).to have_content 'Jade'
-    expect(page).to have_content 'Alastair'
+  context "When players names are entered" do
+    before(:each) do
+      sign_in_and_play
+    end
+
+    it "displays players' names" do
+      expect(page).to have_content 'Jade'
+      expect(page).to have_content 'Alastair'
+    end
+
+    it "shows player 2's hitpoints" do
+      expect(page).to have_content 'Alastair: 1000/1000'
+    end
   end
 end

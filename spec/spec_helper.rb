@@ -19,6 +19,8 @@ require 'rspec'
 
 Capybara.app = Battle
 
+require_relative 'features/web_helpers'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   ENV['RACK_ENV'] = 'test'
