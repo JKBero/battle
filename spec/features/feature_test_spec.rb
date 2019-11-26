@@ -20,7 +20,7 @@ describe "homepage", type: :feature do
 
     it "can hit player 2" do
       click_button 'Smack'
-      expect(page).to have_content 'Player 2 got smacked!'
+      expect(page).to have_content 'Alastair got smacked!'
     end
   end
 end
